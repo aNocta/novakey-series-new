@@ -40,7 +40,7 @@ export const SeriesSelection = ({ location }: Props) => {
             </Link>
         </LocationSelector>
         <DoorSeriesLayout>
-            {queryData && queryData.map((x, k) => <Link key={`l${k}`} to={`/${x.location}/${x.id}#doors`}><SeriesItem attributes={{
+            {queryData && queryData.map((x, k) => <Link key={`l${k}`} to={`/${x.location}/${x.id}`}><SeriesItem attributes={{
                 thickness: x.thickness,
                 sound_absorption: x.sound_absorption,
                 safety_rating: x.safety_rating,

@@ -11,7 +11,7 @@ export const MiniSeries = ({ location, id }: { location: string, id: number }) =
     });
     return (
         <div className={styles.grid}>
-            {seriesQuery.data && seriesQuery.data.map((x, k) => <Link key={`l${k}`} to={`/${location}/${x.id}#doors`}><MiniSeriesItem active={id == x.id} id={x.id} price={x.min_price} title={x.title} key={k} /></Link>)}
+            {seriesQuery.data && seriesQuery.data.map((x, k) => <Link key={`l${k}`} to={`/${location}/${x.id}`}><MiniSeriesItem active={id == x.id} id={x.id} price={x.min_price} title={x.title} key={k} /></Link>)}
         </div>
     )
 }
