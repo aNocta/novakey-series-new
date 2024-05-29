@@ -1,0 +1,40 @@
+@function to_rem($percents) {
+    @return calc($percents/16)+rem;
+}
+
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: to_rem(11);
+    margin-top: to_rem(36);
+
+    @include mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.link {
+    font-size: to_rem(14);
+    background-color: white;
+    color: black;
+    padding: to_rem(8) to_rem(18);
+    border-radius: to_rem(40);
+    transition: .3s;
+
+    @include mobile {
+        border-radius: to_rem(5);
+    }
+
+    &_active,
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
