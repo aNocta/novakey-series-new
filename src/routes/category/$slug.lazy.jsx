@@ -15,10 +15,12 @@ function Category() {
         queryKey: ["cat_alug", slug],
         queryFn: async () => (await axios.post("https://novakey.ru/wp-json/series-endpoints/series/get_category", { slug })).data
     });
+    console.log(category);
     return (<>
         <h1>{category && category.title}</h1>
         {isLoading && <Loader />}
         {!isLoading && <Categories current={slug} />}
         <Doors id={slug} byCat={true} />
+        {category && <div style={{ "margin-top": "120px" }} dangerouslySetInnerHTML={{ __html: category.content }}></div>}
     </>)
 }

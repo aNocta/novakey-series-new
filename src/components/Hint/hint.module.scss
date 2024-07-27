@@ -1,0 +1,35 @@
+@function to_rem($percents) {
+    @return calc($percents/16)+rem;
+}
+
+.hint {
+    min-width: to_rem(100);
+    max-width: to_rem(400);
+    padding: to_rem(10);
+    border-radius: to_rem(5);
+    background-color: black;
+    visibility: hidden;
+
+    p {
+        color: white;
+    }
+}
+
+.hintBox {
+    display: inline-block;
+
+    &:hover .hint {
+        visibility: visible;
+    }
+}
+
+.hintSign {
+    display: grid;
+    place-items: center;
+    width: to_rem(20);
+    height: to_rem(20);
+    background-color: black;
+    color: white;
+    border-radius: 100vw;
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ export interface Attribute {
 }
 export interface Lock extends Attribute {
     description: string;
+    hint: string;
 }
 export interface SafetyRating extends Attribute {
     status: string;

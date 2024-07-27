@@ -15,7 +15,7 @@ $blue: #466ac8;
     grid-template-columns: 1fr 1fr;
     column-gap: to_rem(93);
     row-gap: to_rem(11);
-    width: to_rem(500);
+    width: to_rem(525);
     height: fit-content;
 
     @include mobile {

@@ -4,20 +4,21 @@ import styles from "./doors-item.module.scss";
 interface PriceProps {
     price: number;
     old_price?: number;
+    price_from?: boolean;
 }
-const Price = ({ price, old_price }: PriceProps) => {
+const Price = ({ price, old_price, price_from }: PriceProps) => {
     const formatter = new Intl.NumberFormat('de');
-    if (!old_price) return <span>{formatter.format(price).replace(".", ' ')} ₽</span>;
+    if (!old_price) return <span>{price_from && "от"} {formatter.format(price).replace(".", ' ')} ₽</span>;
     return (
         <div className={styles.card__promotional}>
-            <span>{formatter.format(price).replace(".", ' ')} ₽</span>
+            <span>{price_from && "от"} {formatter.format(price).replace(".", ' ')} ₽</span>
             <del>{formatter.format(old_price).replace(".", ' ')} ₽</del>
         </div>
     );
 }
 
 export const DoorsItem = ({ data }: { data: Door }) => {
-    const { thumbnail, title, price, link, old_price, id } = data;
+    const { thumbnail, title, price, link, old_price, id, price_from } = data;
     return (
         <article className={styles.card}>
             <button data-id={id}>
@@ -35,7 +36,7 @@ export const DoorsItem = ({ data }: { data: Door }) => {
                         </svg>
                     </button>
                 </div>
-                <Price price={price} old_price={old_price} />
+                <Price price={price} old_price={old_price} price_from={!!(+price_from)} />
             </a>
         </article>
     )

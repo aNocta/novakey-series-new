@@ -5,4 +5,5 @@ export interface Door {
     thumbnail: string;
     price: number;
     old_price: number;
+    price_from: boolean;
 }
